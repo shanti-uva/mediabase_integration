@@ -21,12 +21,11 @@ class MediabaseCategoryCount
       yield doc if block_given?
       return doc
     rescue Errno::EHOSTUNREACH
-      "Can't connect to #{url}"
+      return nil
     rescue Errno::ETIMEDOUT
-      "Can't connect to #{url}"
+      return nil
     rescue SocketError
-      "Can't connect to #{url}"      
+      return nil
     end
-    return nil
   end  
 end
